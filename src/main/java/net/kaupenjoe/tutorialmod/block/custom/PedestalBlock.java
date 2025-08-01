@@ -50,9 +50,9 @@ public class PedestalBlock extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if(state.getBlock() != newState.getBlock()) {
+        if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if(blockEntity instanceof PedestalBlockEntity) {
+            if (blockEntity instanceof PedestalBlockEntity) {
                 ItemScatterer.spawn(world, pos, ((PedestalBlockEntity) blockEntity));
                 world.updateComparators(pos, this);
             }
@@ -63,25 +63,26 @@ public class PedestalBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
                                              PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if(world.getBlockEntity(pos) instanceof PedestalBlockEntity pedestalBlockEntity) {
-            if(pedestalBlockEntity.isEmpty() && !stack.isEmpty()) {
-                pedestalBlockEntity.setStack(0, stack.copyWithCount(1));
-                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
-                stack.decrement(1);
-
-                pedestalBlockEntity.markDirty();
-                world.updateListeners(pos, state, state, 0);
-            } else if(stack.isEmpty() && !player.isSneaking()) {
-                ItemStack stackOnPedestal = pedestalBlockEntity.getStack(0);
-                player.setStackInHand(Hand.MAIN_HAND, stackOnPedestal);
-                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 1f);
-                pedestalBlockEntity.clear();
-
-                pedestalBlockEntity.markDirty();
-                world.updateListeners(pos, state, state, 0);
-            }
+        if (!(world.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity)) {
+            return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
         }
+        if (blockEntity.isEmpty() && !stack.isEmpty()) {
+            blockEntity.setStack(0, stack.copyWithCount(1));
+            world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
+            stack.decrement(1);
 
-        return ItemActionResult.SUCCESS;
+            world.updateListeners(pos, state, state, 0);
+            return ItemActionResult.SUCCESS;
+        }
+        if (blockEntity.getSyncedComponent().hasContent() && stack.isEmpty() && !player.isSneaking()) {
+            ItemStack stackOnPedestal = blockEntity.getStack(0);
+            player.setStackInHand(Hand.MAIN_HAND, stackOnPedestal);
+            world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 1f);
+            blockEntity.clear();
+
+            world.updateListeners(pos, state, state, 0);
+            return ItemActionResult.SUCCESS;
+        }
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }
