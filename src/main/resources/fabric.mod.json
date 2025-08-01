@@ -5,7 +5,8 @@
 	"name": "Tutorial Mod",
 	"description": "Tutorial Mod by Kaupenjoe for YouTube",
 	"authors": [
-		"Kaupenjoe!"
+		"Kaupenjoe!",
+		"ShiroJR (basic CCA implementation)"
 	],
 	"contact": {
 		"homepage": "https://kaupenjoe.net",
@@ -23,6 +24,14 @@
 		],
 		"client": [
 			"net.kaupenjoe.tutorialmod.TutorialModClient"
+		],
+		"cardinal-components": [
+			"net.kaupenjoe.tutorialmod.cca.TutorialModCCAComponents"
+		]
+	},
+	"custom": {
+		"cardinal-components": [
+			"tutorialmod:synced_pedestal"
 		]
 	},
 	"mixins": [
@@ -32,7 +41,9 @@
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.21",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"cardinal-components-base": "^6.1.2",
+		"cardinal-components-block": "^6.1.2"
 	},
 	"suggests": {
 		"another-mod": "*"
