@@ -5,7 +5,8 @@
 	"name": "Tutorial Mod",
 	"description": "Tutorial Mod by Kaupenjoe for YouTube",
 	"authors": [
-		"Kaupenjoe!"
+		"Kaupenjoe!",
+		"ShiroJR (basic CCA implementation)"
 	],
 	"contact": {
 		"homepage": "https://kaupenjoe.net",
