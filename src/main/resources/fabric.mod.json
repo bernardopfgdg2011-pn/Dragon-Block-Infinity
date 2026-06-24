@@ -1,35 +1,30 @@
 {
 	"schemaVersion": 1,
-	"id": "tutorialmod",
+	"id": "DragonBlockInfinity",
 	"version": "${version}",
-	"name": "Tutorial Mod",
-	"description": "Tutorial Mod by Kaupenjoe for YouTube",
+	"name": "Dragon Block Infinity",
+	"description": "Dragon Block Infinity Mod by Unknown",
 	"authors": [
-		"Kaupenjoe!"
+		"Unknown"
 	],
 	"contact": {
 		"homepage": "https://kaupenjoe.net",
 		"sources": "https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X"
 	},
 	"license": "MIT",
-	"icon": "assets/tutorialmod/icon.png",
+	"icon": "assets/dragonblockinfinity/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.kaupenjoe.tutorialmod.TutorialMod"
+			"net.dragonblockinfinity.DragonBlockInfinity"
 		],
-		"fabric-datagen": [
-			"net.kaupenjoe.tutorialmod.TutorialModDataGenerator"
-		],
-		"client": [
-			"net.kaupenjoe.tutorialmod.TutorialModClient"
-		],
-		"rei_client": [
-			"net.kaupenjoe.tutorialmod.compat.TutorialModREIClient"
-		]
+		
+	    "client": [
+	        "net.dragonblockinfinity.DragonBlockInfinity"
+	    ]
 	},
 	"mixins": [
-		"tutorialmod.mixins.json"
+		"dragonblockinfinity.mixin.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
