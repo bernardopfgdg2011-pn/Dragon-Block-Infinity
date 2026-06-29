@@ -1,8 +1,9 @@
 {
 	"required": true,
-	"package": "net.kaupenjoe.tutorialmod.mixin",
+	"package": "net.dragonblockinfinity.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"PlayerData",
 		""
 	],
 	"client": [

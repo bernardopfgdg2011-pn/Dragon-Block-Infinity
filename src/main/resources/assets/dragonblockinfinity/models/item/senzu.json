@@ -1,0 +1,6 @@
+{
+    "parent": "item/generates",
+    "textures": {
+        "layer0": "dragonblockinfinity:item/senzu"
+    }
+}

@@ -10,6 +10,6 @@ public class DragonBlockInfinity implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // Mod initialization logic goes here.
+        LOGGER.info("Dragon Block Infinity initialized!");
     }
 }
