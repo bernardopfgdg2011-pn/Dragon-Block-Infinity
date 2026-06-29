@@ -1,0 +1,31 @@
+# Goku Ultra Instinct Hair - Material
+# Gerado automaticamente
+
+newmtl GokuHair
+
+# Cor ambiente (preto/cinza escuro - cor base do cabelo do Goku UI)
+Ka 0.050 0.050 0.055
+
+# Cor difusa (branco/prata - cabelo Ultra Instinct)
+Kd 0.900 0.900 0.920
+
+# Cor especular (reflexo prateado)
+Ks 0.600 0.600 0.650
+
+# Expoente especular (brilho moderado)
+Ns 35.000
+
+# Opacidade (totalmente opaco)
+d 1.000
+
+# Modo de iluminação: 2 = difuso + especular (Phong)
+illum 2
+
+# Textura difusa (substitua pelo arquivo de textura real se tiver)
+# map_Kd goku_hair_diffuse.png
+
+# Normal map (opcional)
+# map_bump goku_hair_normal.png
+
+# Mapa especular (opcional)
+# map_Ks goku_hair_specular.png
