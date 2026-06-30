@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"package": "com.brckv2.objfbxloader.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"HeldItemFeatureRendererMixin",
+		"LivingEntityRenderStateMixin",
+		"LivingEntityRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
